@@ -1,0 +1,8 @@
+---
+# This playbook installs Sphinx
+
+- name: SPHINX | Installs Sphinx
+  action: apt pkg={{ item }} state=installed
+  tags: php5
+  with_items:
+    - sphinxsearch

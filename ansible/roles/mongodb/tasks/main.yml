@@ -1,0 +1,32 @@
+---
+# This playbook installs MongoDB server, MongoDB Client and libraries
+
+- name: MONGODB | Add mongo ppa key
+  apt_key: >
+    keyserver=hkp://keyserver.ubuntu.com:80
+    id=7F0CEB10
+    state=present
+  tags: mongodb
+
+- name: MONGODB | Add mongo sources list
+  sudo: yes
+  lineinfile: >
+    line="deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
+    dest=/etc/apt/sources.list.d/mongodb.list
+    state=present
+    create=yes
+  tags: mongodb
+
+- name: MONGODB |  Install mongo
+  sudo: yes
+  apt: name=mongodb-10gen state=latest update_cache=yes
+  tags: mongodb
+
+- name: MONGODB | Installs pymongo driver
+  action: command pip install pymongo
+  tags: mongodb
+
+- name: MONGODB | Installs Node's mongodb driver
+  action: command npm install mongodb
+  tags: mongodb
+

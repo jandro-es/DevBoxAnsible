@@ -1,0 +1,14 @@
+- hosts: localhost
+  roles:
+    - devmachine
+    - php5
+    - apache
+    - mysql
+    - memcache
+    - node
+    - css
+    - redis
+    - sphinx
+    - mongodb
+    - hosts
+    - restart

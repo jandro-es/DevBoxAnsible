@@ -1,0 +1,10 @@
+---
+# This playbook configures the virtual hosts
+
+- name: HOSTS | Configuration file for Site
+  action: template src=etc-apache2-sites-available-host.j2 dest=/etc/apache2/sites-available/host
+  tags: hosts
+
+- name: HOSTS | Enable Site
+  action: command a2ensite host
+  tags: hosts

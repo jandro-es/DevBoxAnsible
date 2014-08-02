@@ -1,0 +1,8 @@
+---
+# HOSTS Installation settings
+
+# global values
+directory_base_path: '/var/www/local.files'
+
+# Host values
+host_path: '/web'

@@ -1,0 +1,21 @@
+<VirtualHost *:80>
+  DocumentRoot   "{{ directory_base_path }}{{ directory_path }}"
+  ServerName     local.site
+  Options Indexes FollowSymLinks
+  ErrorLog        /var/log/apache2/errors_host.log
+  CustomLog       /var/log/apache2/access_host.log combined
+
+  <Directory "{{ directory_base_path }}{{ directory_path }}">
+    AllowOverride All
+    Allow from All
+    RewriteEngine On
+
+    Rewritecond %{REQUEST_URI} !^/css/.*
+    Rewritecond %{REQUEST_URI} !^/js/.*
+    Rewritecond %{REQUEST_URI} !^/images/.*
+    RewriteRule ^(.*)$ app_dev.php [QSA,L]
+  </Directory>
+
+  php_value error_log /var/log/php/php_host.log
+
+</VirtualHost>
