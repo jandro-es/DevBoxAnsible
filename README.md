@@ -15,7 +15,7 @@ You need to install on your local system the following:
 Donwload it from <http://www.vagrantup.com/> and follow the instructions.
  
 ######Virtual box
-Download from <https://www.virtualbox.org/> the one that suits you system
+Download from <https://www.virtualbox.org/> the one that suits your system
  
 ######Vagrant guests additions plugin
 
