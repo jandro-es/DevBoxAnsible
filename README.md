@@ -34,7 +34,7 @@ On Mac OSX with Homebrew:
 Just clone/download this repository in the base directory of the application you want to use with the box.
 
 ####Customise
-You can modify the playbook - vagrant configuration to adapt it better to your particular needs:
+You can modify the playbook - vagrant configuration to adapt it to your particular needs:
 
 ######Vagrantfile
 Configure the IP and port in case it conflicts with another one:
