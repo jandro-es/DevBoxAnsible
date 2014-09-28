@@ -40,7 +40,7 @@
   tags: php5
 
 - name: PHP | Install PHPUnit
-  get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit creates=/usr/local/bin/phpunit
+  get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit
   tags: php5
 
 - name: PHP | make PHPUnit executable
