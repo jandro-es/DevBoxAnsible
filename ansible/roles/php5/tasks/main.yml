@@ -27,14 +27,20 @@
   action: template src=etc-php5-conf-d-apc-ini.j2 dest=/etc/php5/conf.d/apc.ini
   tags: php5
 
-- name: PHP | Install composer
-  shell:
-      cd /tmp | curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f /tmp/composer.phar /usr/local/bin/composer
-      creates=/usr/local/bin/composer
+- name: PHP | install composer
+  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin creates=/usr/local/bin/composer
+  tags: php5
+
+- name: PHP | rename composer.phar to composer
+  shell: mv /usr/local/bin/composer.phar /usr/local/bin/composer creates=/usr/local/bin/composer
+  tags: php5
+
+- name: PHP | make composer executable
+  shell: chmod a+x /usr/local/bin/composer
   tags: php5
 
 - name: PHP | Install PHPUnit
   shell:
-      cd /tmp | wget https://phar.phpunit.de/phpunit.phar | /usr/bin/php && /bin/mv -f /tmp/phpunit.phar /usr/local/bin/phpunit
+      wget https://phar.phpunit.de/phpunit.phar | /usr/bin/php && /bin/mv -f /tmp/phpunit.phar /usr/local/bin/phpunit
       creates=/usr/local/bin/phpunit
   tags: php5
