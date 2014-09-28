@@ -27,9 +27,9 @@
 #  action: mysql_user user="" host="localhost" state="absent"
 #  tags: mysql
 
-- name: MySQL | Delete anonymous MySQL server user for localhost
-  action: mysql_user user="" state="absent"
-  tags: mysql
+#- name: MySQL | Delete anonymous MySQL server user for localhost
+#  action: mysql_user user="" state="absent"
+#  tags: mysql
 
 - name: MySQL | Secure the MySQL root user for localhost domain (localhost)
   action: mysql_user user="root" password="{{ root_password }}" host="localhost"
