@@ -29,12 +29,12 @@
 
 - name: PHP | Install composer
   shell:
-      cd /tmp curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f /temp/composer.phar /usr/local/bin/composer
+      cd /tmp | curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f /tmp/composer.phar /usr/local/bin/composer
       creates=/usr/local/bin/composer
   tags: php5
 
 - name: PHP | Install PHPUnit
   shell:
-      cd /tmp wget https://phar.phpunit.de/phpunit.phar | /usr/bin/php && /bin/mv -f /tmp/phpunit.phar /usr/local/bin/phpunit
+      cd /tmp | wget https://phar.phpunit.de/phpunit.phar | /usr/bin/php && /bin/mv -f /tmp/phpunit.phar /usr/local/bin/phpunit
       creates=/usr/local/bin/phpunit
   tags: php5
