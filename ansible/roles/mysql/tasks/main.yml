@@ -11,7 +11,7 @@
     - python-mysqldb
     - libapache2-mod-php5
 
-- name: MySQL | Configuration file, my.cnf
+- name: MySQL | Configuration file
   action: template src=etc-mysql-my-cnf.j2 dest=/etc/mysql/my.cnf
   tags: mysql
 
@@ -23,13 +23,13 @@
   action: template src=root-my-cnf.j2 dest=/root/.my.cnf
   tags: mysql
 
-#- name: MySQL | Delete anonymous MySQL server user for localhost
-#  action: mysql_user user="" host="localhost" state="absent"
-#  tags: mysql
+- name: MySQL | Delete anonymous MySQL server user for localhost
+  action: mysql_user user="" host="localhost" state="absent"
+  tags: mysql
 
-#- name: MySQL | Delete anonymous MySQL server user for localhost
-#  action: mysql_user user="" state="absent"
-#  tags: mysql
+- name: MySQL | Delete anonymous MySQL server user for localhost
+  action: mysql_user user="" state="absent"
+  tags: mysql
 
 - name: MySQL | Secure the MySQL root user for localhost domain (localhost)
   action: mysql_user user="root" password="{{ root_password }}" host="localhost"
