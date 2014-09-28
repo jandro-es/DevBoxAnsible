@@ -40,7 +40,9 @@
   tags: php5
 
 - name: PHP | Install PHPUnit
-  shell:
-      wget https://phar.phpunit.de/phpunit.phar | /usr/bin/php && /bin/mv -f /tmp/phpunit.phar /usr/local/bin/phpunit
-      creates=/usr/local/bin/phpunit
+  get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit creates=/usr/local/bin/phpunit
+  tags: php5
+
+- name: PHP | make PHPUnit executable
+  shell: chmod a+x /usr/local/bin/phpunit
   tags: php5
